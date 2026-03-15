@@ -1,0 +1,99 @@
+1️⃣ Problem: Python not in PATH (most common)
+
+Error Jenkins may show:
+
+'python' is not recognized as an internal or external command
+Solution 1 (Best)
+
+Use Python launcher instead of python command
+
+In Jenkins Execute Windows Batch Command:
+
+py test.py
+
+The py launcher usually works even if python is not in PATH.
+
+
+1️⃣ Best option (recommended)
+
+Use the actual Python installation:
+
+C:\Users\vinya\AppData\Local\Programs\Python\Python311\python.exe
+
+So in Jenkins batch command:
+
+"C:\Users\vinya\AppData\Local\Programs\Python\Python311\python.exe" test.py
+
+This directly runs the Python interpreter.
+
+
+8️⃣ Problem: Wrong Git branch
+
+We already saw this error:
+
+Couldn't find any revision to build
+
+Fix:
+
+*/main
+
+instead of
+
+*/master
+
+8️⃣ Problem: Jenkins running with restricted permissions
+
+Sometimes Jenkins service cannot run certain programs.
+
+Solution:
+
+Run Jenkins service as Administrator.
+
+But usually not required.
+
+5️⃣ Problem: Git not installed
+
+Error example:
+
+git is not recognized
+
+Solution:
+
+Install Git
+
+https://git-scm.com/downloads
+
+or add Git to PATH.
+
+
+1️⃣ Create a new Python file using echo
+
+In Execute Windows Batch Command write:
+
+echo print("Hello from Jenkins") > newfile.py
+python newfile.py
+
+Explanation:
+
+> → creates a new file
+
+The line inside echo becomes the content of the Python file
+
+Resulting file:
+
+print("Hello from Jenkins")
+
+
+1️⃣ First Poll SCM run always triggers a build
+
+When Jenkins runs Poll SCM for the first time, it may not yet have a previous commit
+
+
+1️⃣ FOR NEXT SUBSEQUENT POLL MAKE A CHANGE IN GUTHUB REPO FILE
+
+Cron	Meaning
+* * * * *	every minute
+*/5 * * * *	every 5 minutes
+0 * * * *	every hour
+0 2 * * *	every day at 2 AM
+0 0 * * 1	every Monday
