@@ -1,1 +1,4 @@
 inintial main branch editiing with random text
+
+
+reopened a file after switching to main and then wrote some texts
